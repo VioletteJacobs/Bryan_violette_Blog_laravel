@@ -89,14 +89,17 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
 
+                            <?php use App\Models\Avatar; $avatars=Avatar::all();  ?>
+                            
                             <div class="col-md-6">
+
                                 @foreach ($avatars as $item)
                                     
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text ">
                                             <input type="radio" aria-label="Radio button for following text input">
-                                            <img class="w-25" src="{{asset('storage/img/photos/abstrait.jpeg')}}" alt="">
+                                            <img class="w-25" src="{{asset('storage/img/'.$item->url)}}" alt="">
                                         </div>
                                     </div>
                                 </div>

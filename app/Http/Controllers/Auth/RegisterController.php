@@ -76,9 +76,6 @@ class RegisterController extends Controller
             'avatar_id' => $data['avatar_id'],
             'password' => Hash::make($data['password']),
         ]);
-        Avatar::create([
-            "url" => $data["url"],
-        ]);
         return $user;
     }
 }
