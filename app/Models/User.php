@@ -37,4 +37,7 @@ class User extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function avatars(){
+        return $this->belongsTo(Avatar::class, "avatar_id");
+    }
 }

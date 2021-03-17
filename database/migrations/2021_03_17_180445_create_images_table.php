@@ -15,6 +15,9 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
+            $table->string("url");
+            $table->unsignedBigInteger("category_id");
+            $table->foreign("category_id")->references("id")->on("categories");
             $table->timestamps();
         });
     }
@@ -28,4 +31,5 @@ class CreateImagesTable extends Migration
     {
         Schema::dropIfExists('images');
     }
+
 }

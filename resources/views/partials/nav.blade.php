@@ -13,5 +13,4 @@
         @endauth
     </div>
     @endif
-    
 </nav>
