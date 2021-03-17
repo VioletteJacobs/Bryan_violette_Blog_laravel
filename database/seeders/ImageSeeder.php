@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ImageSeeder extends Seeder
 {
@@ -13,6 +14,28 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('images')->insert([
+            [
+                "url" => "abstrait.jpeg",
+                "category_id" => 6
+            ],
+            [
+                "url" => "rappeur.jpeg",
+                "category_id" => 5
+            ],
+            [
+                "url" => "ville.jpeg",
+                "category_id" => 4
+            ],
+            [
+                "url" => "portrait.jpeg",
+                "category_id" => 2
+            ],
+            [
+                "url" => "montagne.jpeg",
+                "category_id" => 1
+            ],
+
+        ]);
     }
 }
