@@ -34,4 +34,4 @@ Route::resource('images', ImageController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('utilisateurs', UserController::class);
 Route::resource('avatars', AvatarController::class);
- 
+Route::get('/download-files/{id}', [ImageController::class, "download"]);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +17,8 @@ class ImageController extends Controller
     public function index()
     {
         $images = Image::all();
-        return view("pages.admin.images.images", compact("images"));
+        $categories = Category::all();
+        return view("pages.admin.images.images", compact("images", "categories"));
     }
 
     /**
@@ -39,7 +41,8 @@ class ImageController extends Controller
     {
         $store = new Image;
         Storage::put('public/img/photos/', $request->file('url'));
-        $store->url = $request->file('src')->hashName();
+        $store->url = $request->file('url')->hashName();
+        $store->category_id = $request->category_id;
         $store->save();
         return redirect()->back();
     }
@@ -90,5 +93,11 @@ class ImageController extends Controller
         Storage::delete('public/img/photos/'.$destroy->url);
         $destroy->delete();
         return redirect('/');
+    }
+
+    public function download($id)
+    {
+        $download = Image::find($id);
+        return Storage::download('public/img/photos/'.$download->url);
     }
 }
