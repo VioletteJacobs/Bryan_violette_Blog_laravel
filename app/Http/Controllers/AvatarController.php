@@ -14,7 +14,8 @@ class AvatarController extends Controller
      */
     public function index()
     {
-        //
+        $avatars = Avatar::all();
+        return view("pages.admin.avatar.avatars", compact("avatars"));
     }
 
     /**

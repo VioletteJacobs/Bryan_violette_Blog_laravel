@@ -14,7 +14,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = Image::all();
+        return view("pages.admin.images.images", compact("images"));
     }
 
     /**
