@@ -28,7 +28,7 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Firstame') }}</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="name" autofocus>
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
 
                                 @error('firstname')
                                     <span class="invalid-feedback" role="alert">
@@ -98,22 +98,19 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text ">
-                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <input type="radio" aria-label="Radio button for following text input" name="avatar_id" value="{{$item->id}}" required autocomplete="avatar_id">
                                             <img class="w-25" src="{{asset('storage/img/'.$item->url)}}" alt="">
                                         </div>
                                     </div>
                                 </div>
                                 @endforeach
-                                  
-                                {{-- <input id="avatar_id" type="" class="form-control @error('avatar_id') is-invalid @enderror" name="avatar_id" required autocomplete="new-avatar_id"> --}}
-
                                 @error('avatar_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> 
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
