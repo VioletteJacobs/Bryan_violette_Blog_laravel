@@ -14,32 +14,29 @@
     <li class="nav-item">
       <a class="nav-link " href="avatars">Avatars</a>
     </li>
-  </ul>
+</ul>
 
-  <section class="container">
-
+<section class="container">
+{{-- messade erreur validate --}}
         @if ($errors->any()) 
             <div class="alert alert-danger"> 
-                <ul> @foreach ($errors->all() as $error) 
-                    <li>{{ $error }}</li> @endforeach 
+                <ul> 
+                    @foreach ($errors->all() as $error) 
+                    <li>{{ $error }}</li> 
+                    @endforeach 
                 </ul> 
             </div> 
         @endif
+
 
     <form action="/categories/{{$edit->id}}" method="POST">
         @csrf
         @method("PUT")
         <label for="">Nom : </label>
-        <input type="text" value="{{old($edit->name) ? old($edit->name) : $date->$edit->name}} ">
+        <input type="text" name="name" value="{{old("name")? old("name") : $edit->name}}">
         <button type="submit" class="btn btn-danger">Update</button>
     </form>
 
-
-
-      
-          
-    </div>
-
-  </section>
+</section>
     
 @endsection

@@ -18,6 +18,7 @@
 
   <section class="container">
     <h1 class="text-center">Les catégories déjà présentes</h1>
+    
     <div>
       <table class="table">
         <thead>
@@ -38,14 +39,15 @@
                 <button type="submit" class="btn btn-danger">Delete</button>
               </form>
             </td>
+
             <td>
-              <a href="categories/{{$item->id}}/edit " class="btn btn-success">Edit</a>
+              <a href="/categories/{{$item->id}}/edit" class="btn btn-success">Edit</a>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
-      
+
           
     </div>
 
