@@ -59,9 +59,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $edit = Category::find($id);
+        return view('pages.admin.editCategory', compact('edit'));
     }
 
     /**
@@ -71,9 +72,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $update = Category::find($id);
+        $update->name = $request->name;
+        $update->save();
+        return redirect('/');
     }
 
     /**
