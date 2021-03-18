@@ -16,19 +16,19 @@ class AvatarSeeder extends Seeder
     {
         DB::table("avatars")->insert([
             [
-                "url" => "chevre.jpeg"
+                "url" => "chevre.png"
             ],
             [
-                "url" => "hippo.jpeg"
+                "url" => "hippo.png"
             ],
             [
-                "url" => "chat.jpeg"
+                "url" => "chat.png"
             ],
             [
-                "url" => "bison.jpeg"
+                "url" => "bison.png"
             ],
             [
-                "url" => "elephant.jpeg"
+                "url" => "elephant.png"
             ],
         ]);
     }
