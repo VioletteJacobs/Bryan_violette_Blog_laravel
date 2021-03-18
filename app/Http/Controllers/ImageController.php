@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -36,7 +37,11 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Image;
+        Storage::put('public/img/photos/', $request->file('url'));
+        $store->url = $request->file('src')->hashName();
+        $store->save();
+        return redirect()->back();
     }
 
     /**
@@ -56,7 +61,7 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function edit(Image $image)
+    public function edit($image)
     {
         //
     }
@@ -79,8 +84,11 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy($id)
     {
-        //
+        $destroy = Image::find($id);
+        Storage::delete('public/img/photos/'.$destroy->url);
+        $destroy->delete();
+        return redirect('/');
     }
 }
