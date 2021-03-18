@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avatar;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AvatarController extends Controller
 {
@@ -25,7 +27,7 @@ class AvatarController extends Controller
      */
     public function create()
     {
-        //
+        return view ("pages.admin.avatar.createAvatar");
     }
 
     /**
@@ -36,7 +38,12 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Avatar;
+        Storage::put("public/img/", $request->file("url"));
+        $store->url = $request->file("url")->hashName();
+        $store->save();
+        return redirect()->back();
+
     }
 
     /**
@@ -79,8 +86,18 @@ class AvatarController extends Controller
      * @param  \App\Models\Avatar  $avatar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Avatar $avatar)
+    public function destroy( Avatar $avatar)
     {
-        //
+        
+        $users = User::where("avatar_id", "=" , $avatar->id)->get();
+        foreach ($users as $item) {
+            $item->avatar_id = 1;
+            $item->save();
+        }
+        
+        Storage::delete("public/img/".$avatar->url);
+        $avatar ->delete();
+
+        return redirect()->back();
     }
 }
