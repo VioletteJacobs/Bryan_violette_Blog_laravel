@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Avatar;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class AvatarController extends Controller
@@ -38,11 +39,20 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
+
+        $avatars = count(DB::table("avatars")->get());
         $store = new Avatar;
         Storage::put("public/img/", $request->file("url"));
         $store->url = $request->file("url")->hashName();
-        $store->save();
-        return redirect()->back();
+        
+        if ($avatars > 8) {
+            $store->save();
+            return redirect()->back();
+        } else {
+
+            return redirect()->back()->with("status","Vous avez déjà 5 avatars");
+        }
+        
 
     }
 

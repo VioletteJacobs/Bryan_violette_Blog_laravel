@@ -43,9 +43,15 @@
 
     <div class="container m-5 text-center">
 
-      <form action="avatars" method="POST" enctype="multipart/form-data">
+      @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+      @endif
+      
+      <form action="/avatars" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="file">
+        <input type="file" name="url">
         <button type="submit" class="btn btn-warning">Ajouter</button>
       </form>
 
