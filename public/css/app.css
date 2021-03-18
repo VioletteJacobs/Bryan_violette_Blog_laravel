@@ -10017,3 +10017,11 @@ h3 {
   height: 200px;
   background-color: #333333;
 }
+
+.navback ul li {
+  list-style: none;
+}
+.navback ul li a {
+  margin-top: 20px;
+  color: white;
+}

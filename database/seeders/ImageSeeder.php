@@ -35,6 +35,32 @@ class ImageSeeder extends Seeder
                 "url" => "montagne.jpeg",
                 "category_id" => 1
             ],
+            [
+                "url" => "vieux.jpeg",
+                "category_id" => 2
+            ],
+            [
+                "url" => "perle.jpeg",
+                "category_id" => 6
+            ],
+            [
+                "url" => "soleil.jpeg",
+                "category_id" => 1
+            ],
+            [
+                "url" => "peinture.jpeg",
+                "category_id" => 6
+            ],
+            [
+                "url" => "glace.jpeg",
+                "category_id" => 1
+            ],
+            [
+                "url" => "mecstyle.jpeg",
+                "category_id" => 2
+            ],
+
+
 
         ]);
     }
