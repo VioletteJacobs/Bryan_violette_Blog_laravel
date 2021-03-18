@@ -42,18 +42,15 @@ class AvatarController extends Controller
 
         $avatars = count(DB::table("avatars")->get());
         $store = new Avatar;
-        Storage::put("public/img/", $request->file("url"));
-        $store->url = $request->file("url")->hashName();
+        Storage::put('public/img/', $request->file('url'));
+        $store->url = $request->file('url')->hashName();
         
-        if ($avatars > 8) {
+        if ($avatars < 5) {
             $store->save();
             return redirect()->back();
         } else {
-
             return redirect()->back()->with("status","Vous avez déjà 5 avatars");
         }
-        
-
     }
 
     /**

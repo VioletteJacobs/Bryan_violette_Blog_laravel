@@ -19,7 +19,7 @@ class AvatarSeeder extends Seeder
                 "url" => "chevre.png"
             ],
             [
-                "url" => "hippo.png"
+                "url" => "rhino.png"
             ],
             [
                 "url" => "chat.png"
