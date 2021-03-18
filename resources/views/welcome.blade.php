@@ -1,5 +1,4 @@
 @extends('template.main')
 @section('content')
-<h1>Welcome</h1>
-    
+@include('partials.welcome.grid')
 @endsection
