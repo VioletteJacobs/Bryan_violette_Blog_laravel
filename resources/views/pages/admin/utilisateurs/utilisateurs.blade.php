@@ -10,6 +10,7 @@
       
       <div class="row">
         @foreach ($utilisateurs as $item)
+        @can("user-card", $item)
         <div class="col-4 ">
           <div class="card m-1 " >
             <img class="card-img-top p-4 " height="300px" width="100%"src="{{asset('storage/img/'.$item->avatars->url)}}" alt="Card image cap">
@@ -24,8 +25,8 @@
               </form>
             </div>
           </div>
-          
         </div>
+        @endcan
         @if ($loop -> iteration%3==0)
       </div>
       <div class="row">

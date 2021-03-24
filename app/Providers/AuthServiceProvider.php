@@ -31,5 +31,13 @@ class AuthServiceProvider extends ServiceProvider
                 false;
             }
         });
+        Gate::define("user-card", function($user, $currentUser){
+            if ($user->id === $currentUser->id) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        });
     }
 }
