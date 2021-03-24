@@ -1,3 +1,9 @@
+@if (session('status'))
+    <div class="alert alert-danger">
+        {{ session('status') }}
+    </div>
+@endif
+
 <div class="grille">
     @foreach ($images as $item)
     <div class="grille-item ">

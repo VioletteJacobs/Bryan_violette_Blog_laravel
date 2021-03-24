@@ -51,6 +51,9 @@ class User extends Authenticatable
     public function avatars(){
         return $this->belongsTo(Avatar::class, "avatar_id");
     }
+    public function roles(){
+        return $this->belongsTo(role ::class, "role_id");
+    }
 }
 
 

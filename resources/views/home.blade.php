@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="row" style="height:100vh">
     @include('partials.admin.nav2')
     <div class="col-9">
