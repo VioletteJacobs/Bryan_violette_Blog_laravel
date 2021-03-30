@@ -3,7 +3,6 @@
 <div class="row" style="height:100vh">
   @include('partials.admin.nav2')
   <div class="col-9">
-
     <section class="container">
       <h1 class="text-center">Les catégories déjà présentes</h1>
       <div>
